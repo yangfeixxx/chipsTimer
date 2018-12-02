@@ -1,5 +1,7 @@
 package cn.chips.core;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class WheelAnnularArray<T> {
     private int index;
     private int size;
@@ -37,12 +39,5 @@ public class WheelAnnularArray<T> {
     public int getSize() {
         return this.size;
     }
-//    public static void main(String[] args) {
-//        WheelAnnularArray wheelAnnularArray = new WheelAnnularArray();
-//        for (int i = 0; i < 20; i++) {
-//            //System.out.println(wheelAnnularArray.index);
-//            wheelAnnularArray.add(i);
-//            System.out.println(wheelAnnularArray.get(i%wheelAnnularArray.size));
-//        }
-//    }
+
 }
