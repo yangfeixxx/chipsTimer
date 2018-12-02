@@ -20,6 +20,7 @@ public class ChipsTimer {
 
     private static AtomicInteger timerThreadPool = new AtomicInteger(1);
     private static AtomicInteger doWorkThreadPool = new AtomicInteger(1);
+    private static AtomicInteger doWheelWorkThreadPool = new AtomicInteger(1);
     private static final int DEFAULT_CORESIZE = 16;
     private static final TimerUnit DEFAULT_TIMERUNIT = TimerUnit.MILLISECONDS100;
 
@@ -31,7 +32,7 @@ public class ChipsTimer {
         this.coreSize = coreSize;
         this.es = ThreadPoolFactory.buildScheduledThreadPool(1, "timerThreadPool-" + timerThreadPool.getAndIncrement());
         this.tpe = ThreadPoolFactory.buildThreadPoolExecutor(coreSize, 100, -1, "doWorkThreadPool-" + doWorkThreadPool.getAndIncrement());
-        this.wheeltpe = ThreadPoolFactory.buildThreadPoolExecutor(10, Integer.MAX_VALUE, -1, "doWheelWorkThreadPool-" + doWorkThreadPool.getAndIncrement());
+        this.wheeltpe = ThreadPoolFactory.buildThreadPoolExecutor(10, Integer.MAX_VALUE, -1, "doWheelWorkThreadPool-" + doWheelWorkThreadPool.getAndIncrement());
         this.waal = new WheelAnnularArray();
         this.timeUnit = timeUnit.getTimeUnit();
         this.t = timeUnit.getT();
