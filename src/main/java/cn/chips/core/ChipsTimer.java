@@ -36,6 +36,11 @@ public class ChipsTimer {
         this.waal = new WheelAnnularArray();
         this.timeUnit = timeUnit.getTimeUnit();
         this.t = timeUnit.getT();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            es.shutdown();
+            tpe.shutdown();
+            wheeltpe.shutdown();
+        }));
     }
 
     /**
