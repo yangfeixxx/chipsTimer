@@ -28,7 +28,7 @@ public class ChipsTimer {
 
     public ChipsTimer(int coreSize, TimerUnit timeUnit) {
         this.coreSize = coreSize;
-        this.es = ThreadPoolFactory.buildScheduledThreadPool(1, "timerThreadPool-" + ai.getAndIncrement());
+        this.es = ThreadPoolFactory.buildScheduledThreadPool(1, "timerThreadPool-" + timerThreadPool.getAndIncrement());
         this.tpe = ThreadPoolFactory.buildThreadPoolExecutor(coreSize, 100, -1, "doWorkThreadPool-" + doWorkThreadPool.getAndIncrement());
         this.waal = new WheelAnnularArray();
         this.timeUnit = timeUnit.getTimeUnit();
