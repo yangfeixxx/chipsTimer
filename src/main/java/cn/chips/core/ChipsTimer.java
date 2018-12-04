@@ -33,7 +33,7 @@ public class ChipsTimer {
         this.es = ThreadPoolFactory.buildScheduledThreadPool(1, "timerThreadPool-" + timerThreadPool.getAndIncrement());
         this.tpe = ThreadPoolFactory.buildThreadPoolExecutor(coreSize, 100, -1, "doWorkThreadPool-" + doWorkThreadPool.getAndIncrement());
         this.wheeltpe = ThreadPoolFactory.buildThreadPoolExecutor(10, Integer.MAX_VALUE, -1, "doWheelWorkThreadPool-" + doWheelWorkThreadPool.getAndIncrement());
-        this.waal = new WheelAnnularArray();
+        this.waal = new WheelAnnularArray(3600);
         this.timeUnit = timeUnit.getTimeUnit();
         this.t = timeUnit.getT();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
